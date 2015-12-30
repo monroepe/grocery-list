@@ -13,6 +13,7 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
   var ref = new Firebase('https://thegrocerylist.firebaseio.com/groceries');
 
   $scope.groceries = $firebaseArray(ref);
+  $scope.addFormShow = true;
 
   $scope.addFormSubmit = function(){
     console.log('Adding Grocery...');
@@ -37,6 +38,44 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
     });
   }
 
+  $scope.editFormSubmit = function(){
+    console.log('Updating Grocery...');
+
+    // Get ID
+    var id = $scope.id;
+
+    // Get Record
+    var record = $scope.groceries.$getRecord(id);
+
+    // Assign Values
+    record.name = $scope.name;
+    record.amount = $scope.amount;
+    record.description = $scope.description;
+
+    // Save Conrtact
+    $scope.groceries.$save(record).then(function(ref){
+      console.log(ref.key);
+    });
+
+    clearFields();
+
+    // Hide Form
+    $scope.editFormShow = false;
+    $scope.addFormShow = true;
+
+    $scope.msg = "Grocery Updated";
+  }
+
+  $scope.showEditForm = function(grocery){
+    $scope.editFormShow = true;
+    $scope.addFormShow = false;
+
+    $scope.id = grocery.$id;
+    $scope.name = grocery.name;
+    $scope.amount = (grocery.amount) ? grocery.amount : null;
+    $scope.description = (grocery.description) ? grocery.description : null;
+  }
+
   function clearFields(){
     console.log('Clearing All Fields...');
 
@@ -44,4 +83,13 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
     $scope.amount = '';
     $scope.description = '';
   }
+
+  $scope.removeGrocery = function(grocery){
+    console.log('Removing Grocery');
+
+    $scope.groceries.$remove(grocery);
+
+    $scope.msg="Grocery Removed";
+  }
+
 }]);

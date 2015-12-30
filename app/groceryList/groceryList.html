@@ -4,8 +4,37 @@
       <h1>Grocery List</h1>
 
       <!-- Add item to list-->
-      <form ng-submit="addFormSubmit()">
+      <form ng-submit="addFormSubmit()" ng-show="addFormShow">
         <h3>Add Grocery Item</h3>
+        <div class="row">
+          <div class="col-md-2">
+            <label>Name:
+              <input type="text" ng-model="name" placeholder="Item Name" required />
+            </label>
+          </div>
+          <div class="col-md-2">
+            <label>Amount:
+              <input type="text" ng-model="amount" placeholder="Amount" />
+            </label>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+              <label>Description:
+                <textarea ng-model="description" placeholder="Description"></textarea>
+              </label>
+            </div>
+         </div>
+        <br>
+        <div class="row">
+          <div class="col-md-12">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+          </div>
+        </div>
+      </form>
+
+      <form ng-submit="editFormSubmit()" ng-show="editFormShow">
+        <h3>Edit Grocery Item</h3>
         <div class="row">
           <div class="col-md-2">
             <label>Name:
