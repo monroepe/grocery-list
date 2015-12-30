@@ -1,1 +1,60 @@
-<h1>Grocery List</h1>
+<div class="row" ng-controller="GroceryListCtrl">
+  <div class="col-lg-12">
+    <div data-alert ng-show="msg" class="alert alert-success">{{msg}}</div>
+      <h1>Grocery List</h1>
+
+      <!-- Add item to list-->
+      <form ng-submit="addFormSubmit()">
+        <h3>Add Grocery Item</h3>
+        <div class="row">
+          <div class="col-md-2">
+            <label>Name:
+              <input type="text" ng-model="name" placeholder="Item Name" required />
+            </label>
+          </div>
+          <div class="col-md-2">
+            <label>Amount:
+              <input type="text" ng-model="amount" placeholder="Amount" />
+            </label>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+              <label>Description:
+                <textarea ng-model="description" placeholder="Description"></textarea>
+              </label>
+            </div>
+         </div>
+        <br>
+        <div class="row">
+          <div class="col-md-12">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+          </div>
+        </div>
+      </form>
+
+      <div class="row groceries">
+      <h3>Groceries</h3>
+      <table>
+        <thead>
+        <tr>
+          <th width="200px">Name</th>
+          <th width="200px;">Amount</th>
+          <th width="25%;">Description</th>
+          <th width="25%;">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat ="grocery in groceries">
+            <td>{{grocery.name}}</td>
+            <td>{{grocery.amount}}</td>
+            <td>{{grocery.description}}</td>
+            <td><a class="btn btn-default btn-xs active" ng-click="showEditForm(grocery)">Edit</a>
+              <a class="btn btn-default btn-xs active" ng-click="removeGrocery(grocery)">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
