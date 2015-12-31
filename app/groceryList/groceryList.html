@@ -59,28 +59,25 @@
         </div>
       </form>
 
-      <div class="row groceries">
-      <h3>Groceries</h3>
-      <table>
-        <thead>
-        <tr>
-          <th width="200px">Name</th>
-          <th width="200px;">Amount</th>
-          <th width="25%;">Description</th>
-          <th width="25%;">Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat ="grocery in groceries">
-            <td>{{grocery.name}}</td>
-            <td>{{grocery.amount}}</td>
-            <td>{{grocery.description}}</td>
-            <td><a class="btn btn-default btn-xs active" ng-click="showEditForm(grocery)">Edit</a>
-              <a class="btn btn-default btn-xs active" ng-click="removeGrocery(grocery)">Delete</a></td>
+      <div class="row">
+        <h3>Groceries</h3>
+        <table>
+          <thead>
+          <tr>
+            <th width="25%">Name</th>
+            <th width="25%;">Amount</th>
+            <th width="25%;">Actions</th>
           </tr>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <tr ng-repeat ="grocery in groceries">
+              <td>{{grocery.name}}</td>
+              <td>{{grocery.amount}}</td>
+              <td><a class="btn btn-default btn-xs active" ng-click="showEditForm(grocery)">Edit</a>
+                <a class="btn btn-danger btn-xs active" ng-click="removeGrocery(grocery)">Delete</a></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
   </div>
 </div>
