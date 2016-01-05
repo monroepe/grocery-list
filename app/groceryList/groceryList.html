@@ -68,7 +68,7 @@
           </thead>
           <tbody>
             <tr ng-repeat ="grocery in groceries">
-              <td>{{grocery.name}}</td>
+              <td ng-class="{bought: bought}"><input type="checkbox" ng-model="bought">{{grocery.name}}</td>
               <td>{{grocery.amount}}</td>
               <td><a class="btn btn-default btn-xs active" ng-click="showEditForm(grocery)">Edit</a>
                 <a class="btn btn-danger btn-xs active" ng-click="removeGrocery(grocery)">Delete</a></td>

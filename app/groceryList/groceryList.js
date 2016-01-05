@@ -41,18 +41,13 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
   $scope.editFormSubmit = function(){
     console.log('Updating Grocery...');
 
-    // Get ID
     var id = $scope.id;
-
-    // Get Record
     var record = $scope.groceries.$getRecord(id);
 
-    // Assign Values
     record.name = $scope.name;
     record.amount = $scope.amount;
     record.description = $scope.description;
 
-    // Save Conrtact
     $scope.groceries.$save(record).then(function(ref){
       console.log(ref.key);
     });
