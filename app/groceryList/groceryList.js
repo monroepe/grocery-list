@@ -27,7 +27,8 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
     $scope.groceries.$add({
       name: name,
       amount: amount,
-      description: description
+      description: description,
+      bought: false
     }).then(function(ref){
 
       // Clear Form
@@ -77,6 +78,16 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
     $scope.name = '';
     $scope.amount = '';
     $scope.description = '';
+  }
+
+  $scope.bought = function(id){
+    var record = $scope.groceries.$getRecord(id);
+
+    record.bought = (record.bought == true ? false : true);
+
+    $scope.groceries.$save(record).then(function(ref){
+      console.log(record.name + " bought!");
+    });
   }
 
   $scope.removeGrocery = function(grocery){
