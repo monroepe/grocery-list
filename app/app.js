@@ -3,8 +3,9 @@
 // Declare app level module which depends on views, and components
 angular.module('groceryList', [
   'ngRoute',
-  "firebase",
-  'groceryList.groceryList'
+  'firebase',
+  'groceryList.groceryList',
+  'user.signUp'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/groceryList'});
