@@ -1,0 +1,22 @@
+<div class="row" ng-controller="LogInCtrl">
+  <form ng-submit="logInFormSubmit()">
+    <h3>Log In</h3>
+    <div class="row">
+      <div class="col-md-2">
+        <label>Email:
+          <input type="text" ng-model="email" placeholder="Email" required />
+        </label>
+      </div>
+      <div class="col-md-2">
+        <label>Password:
+          <input type="password" ng-model="password" placeholder="Password" required/>
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+      </div>
+    </div>
+  </form>
+</div>

@@ -5,7 +5,8 @@ angular.module('groceryList', [
   'ngRoute',
   'firebase',
   'groceryList.groceryList',
-  'user.signUp'
+  'user.signUp',
+  'user.logIn'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/groceryList'});
