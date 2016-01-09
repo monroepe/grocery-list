@@ -8,6 +8,17 @@ angular.module('groceryList', [
   'user.signUp',
   'user.logIn'
 ]).
+
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/groceryList'});
+}])
+
+.controller('MainCtrl', ['$scope', '$firebaseArray', '$location', function($scope, $firebaseArray, $location) {
+  var ref = new Firebase('https://thegrocerylist.firebaseio.com/');
+
+
+  $scope.logout = function(){
+    ref.unauth();
+  }
+
 }]);
