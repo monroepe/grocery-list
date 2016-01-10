@@ -9,6 +9,14 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
   });
 }])
 
+.run(function($location) {
+  var ref = new Firebase('https://thegrocerylist.firebaseio.com/groceries');
+
+  if(ref.getAuth() === null) {
+    $location.path("/login");
+  }
+})
+
 .controller('GroceryListCtrl', ['$scope', '$firebaseArray', function($scope, $firebaseArray) {
   var ref = new Firebase('https://thegrocerylist.firebaseio.com/groceries');
 

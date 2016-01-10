@@ -7,9 +7,9 @@ angular.module('groceryList', [
   'groceryList.groceryList',
   'user.signUp',
   'user.logIn'
-]).
+])
 
-config(['$routeProvider', function($routeProvider) {
+.config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/groceryList'});
 }])
 
