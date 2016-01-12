@@ -106,4 +106,16 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
     $scope.msg="Grocery Removed";
   }
 
+  $scope.clearPurchased = function(){
+    console.log('Clearing purchased');
+
+    $scope.groceries = $scope.groceries.filter(function(grocery) {
+      if (grocery.bought) {
+        $scope.groceries.$remove(grocery);
+      }
+    });
+
+    $scope.msg="Cleared purchased";
+  }
+
 }]);
