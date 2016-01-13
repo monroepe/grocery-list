@@ -32,8 +32,9 @@
         <ul class="nav navbar-nav">
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#/login" ng-click="logout()">Logout</a></li>
-          </ul>
+          <li><a href="#" ng-show=true>{{user.first_name}}</a></li>
+          <li><a href="#/login" ng-click="logout()" ng-show=true>Logout</a></li>
+        </ul>
       </div><!--/.nav-collapse -->
     </div>
   </nav>

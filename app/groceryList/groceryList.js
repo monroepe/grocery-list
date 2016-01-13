@@ -10,7 +10,7 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
 }])
 
 .run(function($location) {
-  var ref = new Firebase('https://thegrocerylist.firebaseio.com/groceries');
+  var ref = new Firebase('https://thegrocerylist.firebaseio.com/');
 
   if(ref.getAuth() === null) {
     $location.path("/login");
