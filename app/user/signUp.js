@@ -30,7 +30,7 @@ angular.module('user.signUp', ['ngRoute', 'firebase'])
           if (error) {
             console.log("Login Failed!", error);
           } else {
-            console.log("Authenticated successfully with payload:");
+            console.log("Authenticated successfully");
             $scope.$apply(function() { $location.path("/groceryList"); });
           }
         });

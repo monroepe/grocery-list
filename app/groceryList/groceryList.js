@@ -20,7 +20,8 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
 .controller('GroceryListCtrl', ['$scope', '$firebaseArray', function($scope, $firebaseArray) {
   var ref = new Firebase('https://thegrocerylist.firebaseio.com/groceries');
 
-  $scope.groceries = $firebaseArray(ref);
+  $scope.userId = ref.getAuth().uid;
+  $scope.groceries = $firebaseArray(ref.orderByChild('userId').equalTo($scope.userId));
   $scope.addFormShow = true;
 
   $scope.addFormSubmit = function(){
@@ -36,7 +37,8 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
       name: name,
       amount: amount,
       description: description,
-      bought: false
+      bought: false,
+      userId: $scope.userId
     }).then(function(ref){
 
       // Clear Form
