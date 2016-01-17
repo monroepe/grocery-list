@@ -8,13 +8,8 @@
         <h3>Add Grocery Item</h3>
         <div class="row">
           <div class="col-md-2">
-            <label>Name:
+            <label>Item:
               <input type="text" ng-model="name" placeholder="Item Name" required />
-            </label>
-          </div>
-          <div class="col-md-2">
-            <label>Amount:
-              <input type="text" ng-model="amount" placeholder="Amount" />
             </label>
           </div>
           <div class="col-md-2">
@@ -34,13 +29,8 @@
         <h3>Edit Grocery Item</h3>
         <div class="row">
           <div class="col-md-2">
-            <label>Name:
+            <label>Item:
               <input type="text" ng-model="name" placeholder="Item Name" required />
-            </label>
-          </div>
-          <div class="col-md-2">
-            <label>Amount:
-              <input type="text" ng-model="amount" placeholder="Amount" />
             </label>
           </div>
           <div class="col-md-2">
@@ -62,15 +52,13 @@
         <table>
           <thead>
           <tr>
-            <th width="25%">Name</th>
-            <th width="25%;">Amount</th>
+            <th width="25%">Item</th>
             <th width="25%;">Actions</th>
           </tr>
           </thead>
           <tbody>
             <tr ng-repeat ="grocery in groceries">
               <td ng-class="{'bought' : grocery.bought}"><input type="checkbox" ng-click="bought(grocery.$id)">{{grocery.name}}</td>
-              <td>{{grocery.amount}}</td>
               <td><a class="btn btn-default btn-xs active" ng-click="showEditForm(grocery)">Edit</a>
                 <a class="btn btn-danger btn-xs active" ng-click="removeGrocery(grocery)">Delete</a></td>
             </tr>

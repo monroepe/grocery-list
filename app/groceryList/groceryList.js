@@ -29,13 +29,11 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
 
     // Assign Values
     if($scope.name){ var name = $scope.name } else { var name = null; }
-    if($scope.amount){ var amount = $scope.amount; } else { var amount = null; }
     if($scope.description){ var description = $scope.description; } else { var description = null; }
 
     // Build Object
     $scope.groceries.$add({
       name: name,
-      amount: amount,
       description: description,
       bought: false,
       userId: $scope.userId
@@ -56,7 +54,6 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
     var record = $scope.groceries.$getRecord(id);
 
     record.name = $scope.name;
-    record.amount = $scope.amount;
     record.description = $scope.description;
 
     $scope.groceries.$save(record).then(function(ref){
@@ -78,7 +75,6 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
 
     $scope.id = grocery.$id;
     $scope.name = grocery.name;
-    $scope.amount = (grocery.amount) ? grocery.amount : null;
     $scope.description = (grocery.description) ? grocery.description : null;
   }
 
@@ -86,7 +82,6 @@ angular.module('groceryList.groceryList', ['ngRoute', 'firebase'])
     console.log('Clearing All Fields...');
 
     $scope.name = '';
-    $scope.amount = '';
     $scope.description = '';
   }
 
