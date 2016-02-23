@@ -51,14 +51,14 @@
         <a href='#' ng-click="clearPurchased()">Clear Purchased</a>
         <table>
           <thead>
-          <tr>
+          <tr id="grocery-header">
             <th width="25%">Item</th>
-            <th width="25%;">Actions</th>
+            <th width="25%">Actions</th>
           </tr>
           </thead>
           <tbody>
             <tr ng-repeat ="grocery in groceries">
-              <td ng-class="{'bought' : grocery.bought}"><input type="checkbox" ng-click="bought(grocery.$id)">{{grocery.name}}</td>
+              <td ng-class="{'bought' : grocery.bought}" id="grocery-item"><input type="checkbox" ng-click="bought(grocery.$id)" id="checkbox">{{grocery.name}}</td>
               <td><a class="btn btn-default btn-xs active" ng-click="showEditForm(grocery)">Edit</a>
                 <a class="btn btn-danger btn-xs active" ng-click="removeGrocery(grocery)">Delete</a></td>
             </tr>

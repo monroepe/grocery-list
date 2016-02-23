@@ -32,3 +32,11 @@
 .bought {
   text-decoration: line-through;
 }
+
+#checkbox {
+  margin-right: 10px;
+}
+
+#grocery-item {
+  font-size: 120%;
+}
