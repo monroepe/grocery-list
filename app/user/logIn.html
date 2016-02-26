@@ -1,5 +1,6 @@
 <div class="row" ng-controller="LogInCtrl">
   <div class="col-md-12">
+    <div data-alert ng-show="msg" class="alert alert-danger">{{msg}}</div>
     <form ng-submit="logInFormSubmit()">
       <h3>Log In</h3>
       <div class="row">

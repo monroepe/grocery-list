@@ -18,13 +18,25 @@ angular.module('user.logIn', ['ngRoute', 'firebase'])
       email    : $scope.email,
       password : $scope.password
     }, function(error, authData) {
+      $scope.msg = "Authentication Failed";
       if (error) {
-        console.log("Login Failed!", error);
+        loginFailed();
       } else {
         console.log("Authenticated successfully");
         $scope.$apply(function() { $location.path("/groceryList"); });
       }
     });
+  }
+
+  function loginFailed(){
+    $scope.msg = "Authentication Failed";
+    console.log("Login Failed!");
+    clearForm();
+  }
+
+  function clearForm(){
+    $scope.password = '';
+    $scope.$apply();
   }
 
 }]);
