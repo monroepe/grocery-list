@@ -21,16 +21,13 @@ angular.module('user.signUp', ['ngRoute', 'firebase'])
       if (error) {
         console.log("Error creating user:", error);
       } else {
-        console.log("Successfully created user account with uid:", userData.uid);
-
         ref.authWithPassword({
           email    : $scope.email,
           password : $scope.password
         }, function(error, authData) {
           if (error) {
-            console.log("Login Failed!", error);
+            console.log("Login Failed!");
           } else {
-            console.log("Authenticated successfully");
             $scope.$apply(function() { $location.path("/groceryList"); });
           }
         });
@@ -38,5 +35,4 @@ angular.module('user.signUp', ['ngRoute', 'firebase'])
       }
     });
   }
-
 }]);
