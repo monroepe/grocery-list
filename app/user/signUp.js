@@ -14,6 +14,10 @@ angular.module('user.signUp', ['ngRoute', 'firebase'])
 
 
   $scope.signUpFormSubmit = function(){
+    if (!checkPassword($scope.password)) {
+      signUpFailed();
+      return;
+    };
     ref.createUser({
       email    : $scope.email,
       password : $scope.password
@@ -35,4 +39,20 @@ angular.module('user.signUp', ['ngRoute', 'firebase'])
       }
     });
   }
+
+  function checkPassword(password){
+    if (password.length < 7){
+      return false;
+    }
+  }
+
+  function signUpFailed(){
+    $scope.msg = "Password less than 7 characters";
+    clearForm();
+  }
+
+  function clearForm(){
+    $scope.password = '';
+  }
+
 }]);

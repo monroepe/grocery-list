@@ -1,5 +1,6 @@
 <div class="row" ng-controller="SignUpCtrl">
   <div class="col-md-12">
+    <div data-alert ng-show="msg" class="alert alert-danger">{{msg}}</div>
     <form ng-submit="signUpFormSubmit()">
       <h3>Sign Up</h3>
       <div class="row">
